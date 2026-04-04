@@ -69,7 +69,46 @@
             }
         }
     </style>
+<style>
+.burger {
+  width: 30px;
+  cursor: pointer;
+  padding: 10px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
 
+.burger div {
+  width: 100%;
+  height: 3px;
+  background: black;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background: white;
+  padding-top: 60px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+</style>
     <script>
         window.onload = function() {
             setTimeout(() => {
@@ -83,7 +122,19 @@
 </head>
 
 <body>
-
+<body>
+    <div class="burger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="sideMenu" class="side-menu">
+    <a href="#">Home</a>
+    <a href="#">Studio</a>
+    <a href="#">Works</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+</div>
     <!-- PRELOADER -->
     <div id="preloader">
         <img src="dopulo-logo.png" alt="DOPULO STUDIO">
@@ -97,6 +148,11 @@
         <p>Welcome to DOPULO STUDIO</p>
         <p>More content coming soon...</p>
     </div>
-
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("sideMenu");
+  menu.style.left = menu.style.left === "0px" ? "-200px" : "0px";
+}
+</script>
 </body>
 </html>
